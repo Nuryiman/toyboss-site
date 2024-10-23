@@ -1,0 +1,4 @@
+venv/
+.sqlite
+static/
+media/
