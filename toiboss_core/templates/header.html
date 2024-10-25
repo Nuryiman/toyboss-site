@@ -1,0 +1,29 @@
+{% load static %}
+<header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-logo">
+            <div class="header-logo__img"><a href="{% url 'home-url' %}"><img src="{% static 'img/svg/logo-header.svg' %}"/></a></div>
+          </div>
+          <div class="header-nav__content">
+            <div class="navigation">
+              <ul class="nav">
+                <div class="nav-group">
+                  <li class="nav-link {% if path == 'about-us-url' %} active {% endif %}"><a href="#">О нас</a></li>
+                  <li class="nav-link {% if request.path == '/products/' %} active {% endif %}"><a href="{% url 'products-url' %}">Продукция</a></li>
+                  <li class="nav-link {% if request.path == '/publications/' %} active {% endif %}"><a href="{% url 'publications-url' %}">Публикации</a></li>
+                </div>
+                <div class="nav-group">
+                  <li class="nav-link"><a href="">Рецепты</a></li>
+
+                </div>
+              </ul>
+            </div>
+            <div class="header-language">
+              <div class="network-link"><a href="#"><img src="{% static 'img/svg/instagram-icon.svg' %}"/></a><a href="#"><img src="{% static 'img/svg/facebook-icon.svg' %}"/></a><a href="#"><img src="{% static 'img/svg/whatsapp-icon.svg' %}"/></a></div>
+              <div class="language-link"><a href="#"><img src="{% static 'img/svg/kg-icon.svg' %}"/></a><a href="#"><img src="{% static 'img/svg/ru-icon.svg' %}"/></a><a href="#"><img src="{% static 'img/svg/en-icon.svg' %}"/></a><a href="#"><img src="{% static 'img/svg/kz-icon.svg' %}"/></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>

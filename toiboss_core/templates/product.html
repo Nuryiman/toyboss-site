@@ -2,34 +2,7 @@
 {% load static %}
 {% block content %}
   <body>
-  <header class="header">
-      <div class="container">
-        <div class="header-content">
-          <div class="header-logo">
-            <div class="header-logo__img"><a href="#"><img src="img/svg/logo-header.svg"/></a></div>
-          </div>
-          <div class="header-nav__content">
-            <div class="navigation">
-              <ul class="nav">
-                <div class="nav-group">
-                  <li class="nav-link active"><a href="#">О нас</a></li>
-                  <li class="nav-link"><a href="#">Продукция</a></li>
-                  <li class="nav-link"><a href="#">Публикации</a></li>
-                </div>
-                <div class="nav-group">
-                  <li class="nav-link"><a href="#">Рецепты</a></li>
-
-                </div>
-              </ul>
-            </div>
-            <div class="header-language">
-              <div class="network-link"><a href="#"><img src="img/svg/instagram-icon.svg"/></a><a href="#"><img src="img/svg/facebook-icon.svg"/></a><a href="#"><img src="img/svg/whatsapp-icon.svg"/></a></div>
-              <div class="language-link"><a href="#"><img src="img/svg/kg-icon.svg"/></a><a href="#"><img src="img/svg/ru-icon.svg"/></a><a href="#"><img src="img/svg/en-icon.svg"/></a><a href="#"><img src="img/svg/kz-icon.svg"/></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+  {% include 'header.html' %}
     <section class="product">
       <div class="container">
         <div class="product__content">
@@ -42,13 +15,14 @@
         </div>
       </div>
     </section>
+  {% for item in product_categories %}
     <div class="product__section-all">
       <section class="product__section-group">
-        <div class="parallax" style="background: url('img/jpg/slider-background.jpg')">
-          <div class="paralax-img"><img src="img/png/img9.png"/></div>
-          <div class="paralax-img2"><img src="img/png/img10.png"/></div>
+        <div class="parallax" style="background: url({% static 'img/jpg/slider-background.jpg' %})">
+          <div class="paralax-img"><img src="{% static 'img/png/img9.png' %}"/></div>
+          <div class="paralax-img2"><img src="{% static 'img/png/img10.png' %}"/></div>
           <div class="parallax-heading">
-            <h2>полукапченые колбасы</h2>
+            <h2>{{ item.name }}</h2>
           </div>
         </div>
         <div class="product-sausage">
@@ -56,226 +30,14 @@
             <div class="product-right-all">
               <div class="product-right">
                 <div class="product__card-all">
+                  {% for product in item.products.all %}
                   <div class="product__card-inner">
                     <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img9.png"/></div>
-                      <h4 data-mh="my-group"> Фирменная</h4><a href="#"></a>
+                      <div class="product__card-img"><img src="{{ product.image.url }}"/></div>
+                      <h4 data-mh="my-group">{{ product.name }}</h4><a href="{% url 'product-detail-url' item.id %}"></a>
                     </div>
                   </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Фирменная</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="button__product-all"><a href="#">Смотреть все</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="product__section-group">
-        <div class="parallax" style="background: url('img/jpg/slider-background.jpg')">
-          <div class="paralax-img"><img src="img/png/img9.png"/></div>
-          <div class="paralax-img2"><img src="img/png/img10.png"/></div>
-          <div class="parallax-heading">
-            <h2>вареные колбасы</h2>
-          </div>
-        </div>
-        <div class="product-sausage">
-          <div class="container">
-            <div class="product-right-all">
-              <div class="product-right">
-                <div class="product__card-all">
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Фирменная</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img9.png"/></div>
-                      <h4 data-mh="my-group"> Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Фирменная</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="button__product-all"><a href="#">Смотреть все</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="product__section-group">
-        <div class="parallax" style="background: url('img/jpg/slider-background.jpg')">
-          <div class="paralax-img"><img src="img/png/img9.png"/></div>
-          <div class="paralax-img2"><img src="img/png/img10.png"/></div>
-          <div class="parallax-heading">
-            <h2>сэндвичи</h2>
-          </div>
-        </div>
-        <div class="product-sausage">
-          <div class="container">
-            <div class="product-right-all">
-              <div class="product-right">
-                <div class="product__card-all">
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Фирменная</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Фирменная</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img12.png"/></div>
-                      <h4 data-mh="my-group"> Байская Мусульманская Мусульманская Мусульманская</h4><a href="#"></a>
-                    </div>
-                  </div>
-                  <div class="product__card-inner">
-                    <div class="product__card">
-                      <div class="product__card-img"><img src="img/png/img9.png"/></div>
-                      <h4 data-mh="my-group"> Байская</h4><a href="#"></a>
-                    </div>
-                  </div>
+                  {% endfor %}
                 </div>
                 <div class="button__product-all"><a href="#">Смотреть все</a></div>
               </div>
@@ -284,25 +46,7 @@
         </div>
       </section>
     </div>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo"><a href="#">   Developed by YOUR-NAME 2024</a></div>
-          <div class="footer-nav-content">
-            <nav class="nav">
-              <ul>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Продукция</a></li>
-                <li><a href="#">Публикации</a></li>
-                <li><a href="#">Рецепты</a></li>
-              </ul>
-            </nav>
-            <div class="footer-link">
-              <div class="network-link"><a href="#"><img src="img/svg/instagram-icon.svg"/></a><a href="#"><img src="img/svg/facebook-icon.svg"/></a><a href="#"><img src="img/svg/whatsapp-icon.svg"/></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+  {% endfor %}
+    {% include 'footer.html' %}
   </body>
 {% endblock %}
